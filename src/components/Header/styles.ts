@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
+  display: flex;
+  
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+`;
+
+export const Top = styled.div`
+  width: 100%;
+  height: 20%;
 `;
 export const Left = styled.div`
   width: 100%;

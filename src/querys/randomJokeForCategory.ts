@@ -1,6 +1,7 @@
-const RANDOM_JOKE_CATEGORY = `
+import { gql } from '@apollo/client';
+const RANDOM_JOKE_CATEGORY = gql`
   {
-    randomJokeForCategory(category: String!) {
+    randomJokeForCategory(category: String) {
       value
     }
   }

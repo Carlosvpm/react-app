@@ -1,4 +1,4 @@
-import { Container, Left } from "./styles";
+import { Container, Left, Top } from "./styles";
 
 type HeaderProps = {
   title: string;
@@ -7,11 +7,13 @@ type HeaderProps = {
 
 export function Header(props: HeaderProps) {
   return (
-    <Container>
-      <Left>
-        <h1>{props.title}</h1>
-        <h3>{props.description}</h3>
-      </Left>
-    </Container>
+    <Top>
+      <Container>
+        <Left>
+          <h1>{props.title}</h1>
+          <h3>{props.description}</h3>
+        </Left>
+      </Container>
+    </Top>
   );
 }

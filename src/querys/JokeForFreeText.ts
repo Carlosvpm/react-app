@@ -1,6 +1,7 @@
-const RANDOM_FREE_TEXT = `
+import { gql } from "@apollo/client";
+const RANDOM_FREE_TEXT = gql`
   {
-    freeText(text: String!) {
+    freeText(text: String) {
       value
     }
   }

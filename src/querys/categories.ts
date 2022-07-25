@@ -1,4 +1,5 @@
-const CATEGORIES = `
+import { gql } from '@apollo/client';
+const CATEGORIES = gql`
   {
     categories
   }
