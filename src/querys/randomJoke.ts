@@ -1,7 +1,5 @@
-import { gql } from "@apollo/client";
-
-const RANDOM_JOKE = gql`
-  query {
+const RANDOM_JOKE = ` 
+  {
     randomJoke{
       value
     }
