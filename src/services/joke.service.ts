@@ -1,10 +1,8 @@
 import axios from "axios";
 import useSWR from "swr";
-import RANDOM_JOKE from "../querys/randomJoke";
+import CATEGORIES from "../querys/categories";
 
-
-export const randomJokeService = () => {
-  const query = RANDOM_JOKE;
+export const JokeService = (query: string) => {
   const fetcher = (query: string) =>
     axios
       .post("http://localhost:5000/graphql", { query })
