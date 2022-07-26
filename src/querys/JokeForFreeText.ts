@@ -1,8 +1,10 @@
 import { gql } from "@apollo/client";
 const RANDOM_FREE_TEXT = gql`
-  {
-    freeText(text: String) {
-      value
+  query getFreeTextJoke($text: String!){
+    freeText(text: $text) {
+      result{
+        value
+      }
     }
   }
 `;
