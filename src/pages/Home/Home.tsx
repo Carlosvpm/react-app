@@ -15,8 +15,6 @@ function Home() {
   if (loading) {
     return <Loader></Loader>;
   }
-  console.log(data);
-
   return (
     <Container>
       <Left>
@@ -33,7 +31,6 @@ function Home() {
       </Left>
       <Right>
         <InputSearch></InputSearch>
-        <ul></ul>
       </Right>
     </Container>
   );
