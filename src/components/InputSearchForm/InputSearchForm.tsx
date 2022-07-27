@@ -1,5 +1,5 @@
 import { useLazyQuery } from "@apollo/client";
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { FiSend } from "react-icons/fi";
 
 import RANDOM_FREE_TEXT from "../../querys/JokeForFreeText";
@@ -13,7 +13,7 @@ export function InputSearch() {
 
   const handleSearchResults = async (e: FormEvent) => {
     e.preventDefault();
-
+    
     if (loading) return <Loader></Loader>;
     if (!text) return null;
 
@@ -21,10 +21,8 @@ export function InputSearch() {
       variables: {
         text,
       },
-    })
+    });
   };
-  //
-
   return (
     <>
       <form
