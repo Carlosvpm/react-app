@@ -1,5 +1,6 @@
 import { Card } from "react-bootstrap";
-import { Container } from "../../pages/Home/home-styles";
+import { Container } from "../../styles/global-styles";
+
 
 type ShowJokeProps = {
   jokes: { __typename: string; value: string }[];

@@ -1,5 +1,5 @@
 
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
@@ -28,4 +28,11 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+`;
+
+export const Container = styled.div`
+  overflow: auto;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 `;

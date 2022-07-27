@@ -1,4 +1,5 @@
-import { Container, Loading } from "./loader.css";
+import { Container, Loading } from "./loader-styles";
+
 
 export function Loader() {
   return (

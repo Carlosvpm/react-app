@@ -1,10 +1,11 @@
 import { useLazyQuery } from "@apollo/client";
 import React, { FormEvent, useState } from "react";
 import { FiSend } from "react-icons/fi";
-import { Container, Input, InputContainer } from "../../pages/Home/home-styles";
+
 import RANDOM_FREE_TEXT from "../../querys/JokeForFreeText";
 import { Loader } from "../Loader/Loader";
 import { ShowJokes } from "../ShowJoke/ShowJoke";
+import { Input, InputContainer } from "./InputSearchForm-styles";
 
 export function InputSearch() {
   const [text, setText] = useState("");

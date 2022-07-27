@@ -1,4 +1,4 @@
-import { environmets } from "./../environments/environments";
+import { environmets } from "../environments/environments";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 export const client = new ApolloClient({
