@@ -3,7 +3,7 @@ import { Left, Right } from "./home-styles";
 import CATEGORIES from "../../querys/categories";
 import { InputSearch } from "../../components/InputSearchForm/InputSearchForm";
 import { useQuery } from "@apollo/client";
-import { Loader } from "../../components/Loader/Loader";
+import { Loader } from "../../components/LoaderView/Loader";
 import { Container } from "../../styles/global-styles";
 
 function Home() {

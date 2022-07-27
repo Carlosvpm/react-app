@@ -3,8 +3,8 @@ import React, { FormEvent, useState } from "react";
 import { FiSend } from "react-icons/fi";
 
 import RANDOM_FREE_TEXT from "../../querys/JokeForFreeText";
-import { Loader } from "../Loader/Loader";
-import { ShowJokes } from "../ShowJoke/ShowJoke";
+import { Loader } from "../LoaderView/Loader";
+import { ShowJokes } from "../ShowJokeView/ShowJoke";
 import { Input, InputContainer } from "./InputSearchForm-styles";
 
 export function InputSearch() {
@@ -21,9 +21,7 @@ export function InputSearch() {
       variables: {
         text,
       },
-    }).then((data) => {
-      console.log(data.data.freeText.result);
-    });
+    })
   };
   //
 
