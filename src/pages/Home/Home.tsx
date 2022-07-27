@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { Container, Left, Right, InputContainer, Input } from "./home-styles";
 import CATEGORIES from "../../querys/categories";
-import { InputSearch } from "../../components/InputSearch/InputSearch";
-import { useJokeService } from "../../services/joke.service";
-import { ShowResults } from "../../components/ShowJoke/ShowJoke";
+import { InputSearch } from "../../components/InputSearchForm/InputSearchForm";
+import { useQuery } from "@apollo/client";
+import { Loader } from "../../components/Loader/Loader";
 
-const Home = () => {
+function Home() {
   const [text, setText] = useState("");
   const title: string = "Chuck Norris Jokes";
   const description: string =
     'Chuck Norris Jokes é uma aplicação web que permite realizar buscas por qualquer piada do Chuck Norris, basta escrever algum tópico na barra de busca, ou então se preferir, pode buscar por categorias, caso não goste das opções podemos te surpreender com uma piada aleatória, basta clicar no botão "Random Joke"';
+
+  const { data, loading } = useQuery(CATEGORIES);
+  if (loading) {
+    return <Loader></Loader>;
+  }
+  console.log(data);
+
   return (
     <Container>
       <Left>
@@ -25,15 +32,11 @@ const Home = () => {
         </div>
       </Left>
       <Right>
-        <InputSearch
-          parantCallBack={(text: string) => setText(text)}
-        ></InputSearch>
-        <ShowResults text={text}></ShowResults>
+        <InputSearch></InputSearch>
+        <ul></ul>
       </Right>
     </Container>
   );
-};
+}
 
 export default Home;
-
-

@@ -1,4 +1,4 @@
-import { Container, Left, Top } from "./styles";
+import { Container, Left, Top } from "./header.css";
 
 type HeaderProps = {
   title: string;

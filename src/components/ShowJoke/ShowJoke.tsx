@@ -1,16 +1,30 @@
-import RANDOM_FREE_TEXT from "../../querys/JokeForFreeText";
-import { useJokeService } from "../../services/joke.service";
+import { Card } from "react-bootstrap";
+import { Container } from "../../pages/Home/home-styles";
 
 type ShowJokeProps = {
-  text: string;
+  jokes: { __typename: string; value: string }[];
 };
 
-export const ShowResults = (props: ShowJokeProps) => {
-  const result = useJokeService(RANDOM_FREE_TEXT, { text: props.text });
+export const ShowJokes = (props: ShowJokeProps) => {
+  if (!props.jokes) return null;
 
   return (
-    <div>
-      <h1>{props.text}</h1>
-    </div>
+    <Container>
+      {props.jokes.map((jokes: any, index: number) => {
+        return (
+          <Card
+            bg="dark"
+            key={index}
+            text="white"
+            className="mb-2"
+          >
+            <Card.Body>
+              <Card.Title>Chuck Norris joke</Card.Title>
+              <Card.Text>{jokes.value}</Card.Text>
+            </Card.Body>
+          </Card>
+        );
+      })}
+    </Container>
   );
 };
