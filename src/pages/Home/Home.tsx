@@ -1,20 +1,20 @@
-import { useState } from "react";
 import { Left, Right } from "./home-styles";
-import CATEGORIES from "../../querys/categories";
 import { InputSearch } from "../../components/InputSearchForm/InputSearchForm";
-import { useQuery } from "@apollo/client";
-import { Loader } from "../../components/LoaderView/Loader";
 import { Container } from "../../styles/global-styles";
+import { ManuCategories } from "../../components/MenuCategoriesView/MenuCategories";
+import { ButtonRandomJoke } from "../../components/ButtonRandomJoke/ButtonRandomJoke";
+import { useState } from "react";
+import { ShowJokes } from "../../components/ShowJokeView/ShowJoke";
 
 function Home() {
   const title: string = "Chuck Norris Jokes";
   const description: string =
     'Chuck Norris Jokes é uma aplicação web que permite realizar buscas por qualquer piada do Chuck Norris, basta escrever algum tópico na barra de busca, ou então se preferir, pode buscar por categorias, caso não goste das opções podemos te surpreender com uma piada aleatória, basta clicar no botão "Random Joke"';
+  const [jokes, setJokes] = useState();
 
-  const { data, loading } = useQuery(CATEGORIES);
-  if (loading) {
-    return <Loader></Loader>;
-  }
+  const parseForShowJoke = (inputData: any) => {
+    return inputData;
+  };
   return (
     <Container>
       <Left>
@@ -30,7 +30,9 @@ function Home() {
         </div>
       </Left>
       <Right>
-        <InputSearch></InputSearch>
+        <InputSearch onSubmit={parseForShowJoke('')}></InputSearch>
+        <ButtonRandomJoke></ButtonRandomJoke>
+        <ShowJokes ></ShowJokes>
       </Right>
     </Container>
   );

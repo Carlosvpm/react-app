@@ -10,8 +10,9 @@ const rotation = keyframes`
 `;
 
 export const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  margin: 0;
   background-color: black;
   display: flex;
   justify-content: center;

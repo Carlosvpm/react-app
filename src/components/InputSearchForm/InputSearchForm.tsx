@@ -7,13 +7,20 @@ import { Loader } from "../LoaderView/Loader";
 import { ShowJokes } from "../ShowJokeView/ShowJoke";
 import { Input, InputContainer } from "./InputSearchForm-styles";
 
-export function InputSearch() {
+type InputSearchProps = {
+  onSubmit: any;
+};
+
+export function InputSearch(props: InputSearchProps) {
   const [text, setText] = useState("");
   const [getResults, { loading, data }] = useLazyQuery(RANDOM_FREE_TEXT);
 
+  const emitEvent = (dataForEmit: any) => {
+    props.onSubmit(dataForEmit);
+  };
   const handleSearchResults = async (e: FormEvent) => {
     e.preventDefault();
-    
+
     if (loading) return <Loader></Loader>;
     if (!text) return null;
 
@@ -21,6 +28,8 @@ export function InputSearch() {
       variables: {
         text,
       },
+    }).then((results) => {
+      emitEvent(results);
     });
   };
   return (
@@ -41,7 +50,6 @@ export function InputSearch() {
           </button>
         </InputContainer>
       </form>
-      {data ? <ShowJokes jokes={data.freeText.result}></ShowJokes> : null}
     </>
   );
 }
